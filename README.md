@@ -1,5 +1,3 @@
-# custom-mBERT
-
 # Hindi Sentiment Classification using Polyglot Tokenization + mBERT
 
 This project fine-tunes the `bert-base-multilingual-cased` (mBERT) model for Hindi sentiment classification. It uses **Polyglot** for tokenization and adapts the output to be compatible with mBERT's vocabulary.
@@ -78,4 +76,14 @@ def classify_text(text):
     return list(label_mapping.keys())[prediction.item()]
 
 ```
+
+## 📌 Notes
+- This implementation maps Polyglot tokens directly to mBERT vocab using convert_tokens_to_ids. Out-of-vocab tokens are replaced with [UNK].
+
+- Sequences are truncated at max_length=128 and padded to match.
+ 
+## 📂 Output
+- ./results/ — Model checkpoints.
+
+- ./logs/ — Training logs.
 
